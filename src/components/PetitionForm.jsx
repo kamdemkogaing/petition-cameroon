@@ -8,6 +8,7 @@ export default function PetitionForm({
   handleSubmit,
   captchaChecked,
   setCaptchaChecked,
+  isSubmitting,
 }) {
   const { t } = useTranslation();
 
@@ -28,8 +29,8 @@ export default function PetitionForm({
           </label>
           <input
             type="text"
-            name="nom"
-            value={formData.nom}
+            name="lastName"
+            value={formData.lastName}
             onChange={handleChange}
             placeholder={t("form.lastnamePlaceholder")}
             className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#007a3d] focus:bg-white"
@@ -42,8 +43,8 @@ export default function PetitionForm({
           </label>
           <input
             type="text"
-            name="prenom"
-            value={formData.prenom}
+            name="firstName"
+            value={formData.firstName}
             onChange={handleChange}
             placeholder={t("form.firstnamePlaceholder")}
             className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#ce1126] focus:bg-white"
@@ -56,8 +57,8 @@ export default function PetitionForm({
           </label>
           <input
             type="text"
-            name="localite"
-            value={formData.localite}
+            name="locality"
+            value={formData.locality}
             onChange={handleChange}
             placeholder={t("form.cityPlaceholder")}
             className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none transition focus:border-[#fcd116] focus:bg-white"
@@ -86,9 +87,10 @@ export default function PetitionForm({
 
         <button
           type="submit"
-          className="w-full rounded-2xl bg-gradient-to-r from-[#007a3d] via-[#009246] to-[#ce1126] px-6 py-4 text-lg font-semibold text-white shadow-lg transition hover:scale-[1.01] cursor-pointer"
+          disabled={isSubmitting}
+          className="w-full cursor-pointer rounded-2xl bg-gradient-to-r from-[#007a3d] via-[#009246] to-[#ce1126] px-6 py-4 text-lg font-semibold text-white shadow-lg transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {t("form.submit")}
+          {isSubmitting ? "Envoi..." : t("form.submit")}
         </button>
       </form>
     </motion.div>

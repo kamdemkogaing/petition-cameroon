@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import LanguageSwitcher from "./components/LanguageSwitcher";
@@ -6,19 +7,23 @@ import PetitionContent from "./components/PetitionContent";
 import PetitionForm from "./components/PetitionForm";
 import PetitionStats from "./components/PetitionStats";
 import petitionText from "./data/petitionText";
+import { getOrCreateVisitorId } from "./utils/visitorId";
 
 export default function App() {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
-    nom: "",
-    prenom: "",
-    localite: "",
+    firstName: "",
+    lastName: "",
+    locality: "",
   });
 
-  const [signatures, setSignatures] = useState(5460);
-  const [joursRestants] = useState(5);
+  const [signatures, setSignatures] = useState(100000);
+  const [joursRestants] = useState(8);
   const [captchaChecked, setCaptchaChecked] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const objectif = 10000;
+  const objectif = 1000000;
 
   const progress = useMemo(() => {
     return Math.min(Math.round((signatures / objectif) * 100), 100);
@@ -26,38 +31,74 @@ export default function App() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.nom || !formData.prenom) {
-      alert("Veuillez remplir le nom et le prénom.");
+    if (!formData.lastName || !formData.firstName) {
+      alert(t("form.requiredAlert"));
       return;
     }
 
     if (!captchaChecked) {
-      alert("Veuillez cocher la case reCAPTCHA.");
+      alert(t("form.captchaAlert"));
       return;
     }
 
-    setSignatures((prev) => prev + 1);
+    try {
+      setIsSubmitting(true);
 
-    alert(
-      `Merci ${formData.prenom} ${formData.nom}, votre signature a été enregistrée.`,
-    );
+      const uuid = getOrCreateVisitorId();
 
-    setFormData({
-      nom: "",
-      prenom: "",
-      localite: "",
-    });
+      const response = await fetch("http://localhost:3000/api/signatures", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          locality: formData.locality,
+          uuid,
+        }),
+      });
 
-    setCaptchaChecked(false);
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.message || "Une erreur est survenue.");
+        return;
+      }
+
+      setSignatures((prev) => prev + 1);
+
+      alert(
+        data.message ||
+          t("form.success", {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+          }),
+      );
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        locality: "",
+      });
+
+      setCaptchaChecked(false);
+    } catch (error) {
+      console.error(error);
+      alert("Impossible d'envoyer la signature au serveur.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -66,6 +107,7 @@ export default function App() {
         <div className="flex justify-end">
           <LanguageSwitcher />
         </div>
+
         <HeroSection signatures={signatures} progress={progress} />
 
         <section className="grid grid-cols-1 gap-8 lg:grid-cols-[1.3fr_0.9fr]">
@@ -77,6 +119,7 @@ export default function App() {
             handleSubmit={handleSubmit}
             captchaChecked={captchaChecked}
             setCaptchaChecked={setCaptchaChecked}
+            isSubmitting={isSubmitting}
           />
         </section>
 
