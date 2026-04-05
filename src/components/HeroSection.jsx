@@ -12,7 +12,7 @@ export default function HeroSection({ signatures, progress }) {
       className="overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-slate-200"
     >
       <div className="relative flex min-h-[460px] items-center px-6 py-10 md:px-10 md:py-14">
-        <div className="absolute inset-0 bg-[url('/maurice-kamto.jpg')] bg-no-repeat bg-[92%_center] bg-[length:auto_105%] opacity-40 md:bg-[88%_center] md:bg-[length:auto_118%]" />
+        <div className="absolute inset-0 bg-[url('/maurice-kamto.jpg')] bg-no-repeat bg-[92%_center] bg-[length:auto_100%] md:bg-[100%_center] md:bg-[length:auto_100%]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b3d2e]/95 via-[#0f6b45]/75 to-[#c59b16]/55" />
 
         <div className="relative z-10 max-w-3xl">
