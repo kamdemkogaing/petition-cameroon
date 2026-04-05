@@ -59,7 +59,7 @@ export default function App() {
       const response = await fetch(
         "https://test-tools.mrc-europe.com/v1/api/data/petitions/sign",
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
