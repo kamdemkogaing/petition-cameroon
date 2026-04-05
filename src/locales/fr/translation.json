@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "badge": "Pétition citoyenne",
+    "title": "Soutien national pour une vision nouvelle du Cameroun",
+    "description": "Exprimez votre engagement en signant cette pétition en ligne. Chaque signature renforce une mobilisation citoyenne pacifique pour le changement.",
+    "initiatedBy": "Initiée par",
+    "author": "Maurice Kamto — Président National",
+    "mobilisation": "Mobilisation en cours",
+    "progress": "Progression de la pétition",
+    "progressText": "Ensemble, avançons vers l’objectif citoyen."
+  },
+  "petition": {
+    "title": "Texte de la pétition",
+    "subtitle": "Prenez un moment pour lire le contenu avant de signer.",
+    "content": "Le peuple camerounais mérite une gouvernance plus juste, plus transparente et plus proche de ses réalités quotidiennes.\n\nPar cette pétition, nous exprimons notre volonté de soutenir une vision nationale portée par le Président National Maurice Kamto.\n\nNous demandons :\n- un meilleur respect des droits citoyens,\n- une amélioration des conditions de vie,\n- une gouvernance équitable,\n- un engagement clair pour l'avenir du Cameroun.\n\nEn signant cette pétition, chaque citoyen apporte sa voix à une mobilisation pacifique, républicaine et constructive pour le changement.\n\nVotre signature compte."
+  },
+  "form": {
+    "title": "Signer la pétition",
+    "subtitle": "Remplissez le formulaire ci-dessous pour ajouter votre soutien.",
+    "lastname": "Nom",
+    "firstname": "Prénom",
+    "city": "Localité",
+    "lastnamePlaceholder": "Entrez votre nom",
+    "firstnamePlaceholder": "Entrez votre prénom",
+    "cityPlaceholder": "Votre localité",
+    "captchaTitle": "Je ne suis pas un robot",
+    "captchaText": "Validation simulée de type reCAPTCHA",
+    "submit": "Signer maintenant",
+    "requiredAlert": "Veuillez remplir le nom et le prénom.",
+    "captchaAlert": "Veuillez cocher la case reCAPTCHA.",
+    "success": "Merci {{firstname}} {{lastname}}, votre signature a été enregistrée."
+  },
+  "stats": {
+    "signatures": "Signatures",
+    "daysLeft": "Jours restants",
+    "goal": "Objectif"
+  },
+  "footer": {
+    "title": "Pétition citoyenne",
+    "description": "Plateforme de mobilisation citoyenne dédiée à l’expression libre, pacifique et démocratique des citoyens camerounais.",
+    "engagement": "Engagement",
+    "rights": "Droits & Inclusion",
+    "rightsText": "Cette plateforme respecte les principes d’égalité, de non-discrimination et d’inclusion. Toute personne, sans distinction d’origine, de genre, ou de condition sociale, peut exprimer librement son opinion.",
+    "items": {
+      "one": "Participation citoyenne",
+      "two": "Transparence",
+      "three": "Respect des droits humains",
+      "four": "Inclusion de toutes les voix"
+    },
+    "copyright": "© {{year}} — Pétition Cameroun. Tous droits réservés.",
+    "bottom": "Plateforme citoyenne indépendante • Respect • Inclusion • Liberté d’expression"
+  },
+  "language": {
+    "fr": "FR",
+    "en": "EN"
+  }
+}

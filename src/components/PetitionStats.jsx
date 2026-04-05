@@ -1,20 +1,29 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function PetitionStats({ signatures, joursRestants, objectif }) {
+  const { t, i18n } = useTranslation();
+
+  const formatNumber = (value) => {
+    return new Intl.NumberFormat(
+      i18n.language === "fr" ? "fr-FR" : "en-US",
+    ).format(value);
+  };
+
   const cards = [
     {
-      label: "Signatures",
-      value: signatures,
+      label: t("stats.signatures"),
+      value: formatNumber(signatures),
       accent: "from-[#007a3d] to-[#0f6b45]",
     },
     {
-      label: "Jours restants",
-      value: joursRestants,
+      label: t("stats.daysLeft"),
+      value: formatNumber(joursRestants),
       accent: "from-[#ce1126] to-[#a50d20]",
     },
     {
-      label: "Objectif",
-      value: objectif.toLocaleString("fr-FR"),
+      label: t("stats.goal"),
+      value: formatNumber(objectif),
       accent: "from-[#f0c400] to-[#c59b16]",
     },
   ];

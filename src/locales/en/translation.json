@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "badge": "Citizen petition",
+    "title": "National support for a new vision of Cameroon",
+    "description": "Show your commitment by signing this online petition. Every signature strengthens a peaceful citizen movement for change.",
+    "initiatedBy": "Initiated by",
+    "author": "Maurice Kamto — National President",
+    "mobilisation": "Ongoing mobilization",
+    "progress": "Petition progress",
+    "progressText": "Together, let us move toward our civic goal."
+  },
+  "petition": {
+    "title": "Petition text",
+    "subtitle": "Take a moment to read the content before signing.",
+    "content": "The Cameroonian people deserve fairer, more transparent governance that is closer to their daily realities.\n\nThrough this petition, we express our will to support a national vision led by National President Maurice Kamto.\n\nWe call for:\n- better respect for citizens' rights,\n- improved living conditions,\n- fair governance,\n- a clear commitment to the future of Cameroon.\n\nBy signing this petition, each citizen adds their voice to a peaceful, republican, and constructive movement for change.\n\nYour signature matters."
+  },
+  "form": {
+    "title": "Sign the petition",
+    "subtitle": "Fill out the form below to add your support.",
+    "lastname": "Last name",
+    "firstname": "First name",
+    "city": "City",
+    "lastnamePlaceholder": "Enter your last name",
+    "firstnamePlaceholder": "Enter your first name",
+    "cityPlaceholder": "Your city",
+    "captchaTitle": "I am not a robot",
+    "captchaText": "Simulated reCAPTCHA validation",
+    "submit": "Sign now",
+    "requiredAlert": "Please fill in your last name and first name.",
+    "captchaAlert": "Please check the reCAPTCHA box.",
+    "success": "Thank you {{firstname}} {{lastname}}, your signature has been recorded."
+  },
+  "stats": {
+    "signatures": "Signatures",
+    "daysLeft": "Days left",
+    "goal": "Goal"
+  },
+  "footer": {
+    "title": "Citizen petition",
+    "description": "A civic mobilization platform dedicated to the free, peaceful, and democratic expression of Cameroonian citizens.",
+    "engagement": "Commitment",
+    "rights": "Rights & Inclusion",
+    "rightsText": "This platform respects the principles of equality, non-discrimination, and inclusion. Every person, regardless of origin, gender, or social condition, can freely express their opinion.",
+    "items": {
+      "one": "Citizen participation",
+      "two": "Transparency",
+      "three": "Respect for human rights",
+      "four": "Inclusion of all voices"
+    },
+    "copyright": "© {{year}} — Petition Cameroon. All rights reserved.",
+    "bottom": "Independent civic platform • Respect • Inclusion • Freedom of expression"
+  },
+  "language": {
+    "fr": "FR",
+    "en": "EN"
+  }
+}

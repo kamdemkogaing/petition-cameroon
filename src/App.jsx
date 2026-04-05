@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
+import LanguageSwitcher from "./components/LanguageSwitcher";
 import PetitionContent from "./components/PetitionContent";
 import PetitionForm from "./components/PetitionForm";
 import PetitionStats from "./components/PetitionStats";
@@ -62,6 +63,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-100 px-4 py-8 md:px-8">
       <div className="mx-auto max-w-7xl space-y-8">
+        <div className="flex justify-end">
+          <LanguageSwitcher />
+        </div>
         <HeroSection signatures={signatures} progress={progress} />
 
         <section className="grid grid-cols-1 gap-8 lg:grid-cols-[1.3fr_0.9fr]">

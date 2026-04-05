@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
 
   return (
@@ -18,45 +20,42 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* COL 1 */}
           <div>
-            <h3 className="text-xl font-semibold mb-3">Pétition citoyenne</h3>
-            <p className="text-sm text-white/70 leading-6">
-              Plateforme de mobilisation citoyenne dédiée à l’expression libre,
-              pacifique et démocratique des citoyens camerounais.
+            <h3 className="mb-3 text-xl font-semibold">{t("footer.title")}</h3>
+            <p className="text-sm leading-6 text-white/70">
+              {t("footer.description")}
             </p>
           </div>
 
           {/* COL 2 */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Engagement</h3>
+            <h3 className="mb-3 text-lg font-semibold">
+              {t("footer.engagement")}
+            </h3>
             <ul className="space-y-2 text-sm text-white/70">
-              <li>✔ Participation citoyenne</li>
-              <li>✔ Transparence</li>
-              <li>✔ Respect des droits humains</li>
-              <li>✔ Inclusion de toutes les voix</li>
+              <li>✔ {t("footer.items.one")}</li>
+              <li>✔ {t("footer.items.two")}</li>
+              <li>✔ {t("footer.items.three")}</li>
+              <li>✔ {t("footer.items.four")}</li>
             </ul>
           </div>
 
           {/* COL 3 */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Droits & Inclusion</h3>
-            <p className="text-sm text-white/70 leading-6">
-              Cette plateforme respecte les principes d’égalité, de
-              non-discrimination et d’inclusion. Toute personne, sans
-              distinction d’origine, de genre, ou de condition sociale, peut
-              exprimer librement son opinion.
+            <h3 className="mb-3 text-lg font-semibold">{t("footer.rights")}</h3>
+            <p className="text-sm leading-6 text-white/70">
+              {t("footer.rightsText")}
             </p>
           </div>
         </div>
 
         {/* BAS FOOTER */}
-        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 md:flex-row">
           <p className="text-sm text-white/60">
-            © {year} — Pétition Cameroun. Tous droits réservés.
+            {t("footer.copyright", { year })}
           </p>
 
-          <p className="text-xs text-white/40 text-center md:text-right">
-            Plateforme citoyenne indépendante • Respect • Inclusion • Liberté
-            d’expression
+          <p className="text-center text-xs text-white/40 md:text-right">
+            {t("footer.bottom")}
           </p>
         </div>
       </div>
