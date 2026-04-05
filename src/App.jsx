@@ -56,18 +56,21 @@ export default function App() {
 
       const uuid = getOrCreateVisitorId();
 
-      const response = await fetch("http://localhost:3000/api/signatures", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://test-tools.mrc-europe.com/v1/api/data/petitions/sign",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            locality: formData.locality,
+            uuid,
+          }),
         },
-        body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          locality: formData.locality,
-          uuid,
-        }),
-      });
+      );
 
       const data = await response.json();
 
